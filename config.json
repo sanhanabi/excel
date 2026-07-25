@@ -1,0 +1,16 @@
+{
+  "planner": {
+    "type": "llama_cpp",
+    "model_path": "models/planner.gguf",
+    "server_path": "runtime/llama/llama-server.exe",
+    "context_length": 8192,
+    "max_tokens": 700,
+    "temperature": 0.0,
+    "startup_timeout_seconds": 180,
+    "request_timeout_seconds": 600,
+    "n_batch": 512
+  },
+  "profile": {
+    "sample_count": 3
+  }
+}
