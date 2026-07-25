@@ -8,6 +8,7 @@ Windows용 완전 오프라인 스탠드얼론 배포판입니다.
 - Qwen3.5 4B GGUF 모델 및 llama.cpp 런타임 포함
 - 원본 Excel 파일을 수정하지 않고 별도의 결과 파일 생성
 - 최소 지원 메모리: 16GB RAM
+- Python 3.9.9 및 제3자 구성요소 라이선스 본문 포함
 
 ## 설치
 
@@ -25,6 +26,10 @@ Windows용 완전 오프라인 스탠드얼론 배포판입니다.
 `SHA256SUMS.txt`는 다운로드 파일의 무결성을 직접 확인하려는 사용자를
 위한 선택적 체크섬 파일입니다.
 
+이 배포판은 코드 서명되지 않았으므로 Windows SmartScreen이나 회사 보안
+프로그램에서 경고할 수 있습니다. 회사 PC에서는 조직의 보안 정책을
+따르세요.
+
 ---
 
 This is the complete offline Windows standalone distribution.
@@ -34,11 +39,15 @@ This is the complete offline Windows standalone distribution.
 - Bundled Qwen3.5 4B GGUF model and llama.cpp runtime
 - Source workbooks are never overwritten
 - Minimum supported memory: 16GB RAM
+- Python 3.9.9 and third-party license texts included
 
 Download the two archive parts and `Install_ExcelAssistant.cmd` into the same
 folder, then run the CMD file. Using built-in Windows commands, it verifies
 both parts, joins them, verifies the completed archive, and then extracts the
 package.
+
+The executable is not code-signed and may trigger Windows SmartScreen or
+company security software. Follow the target organization's security policy.
 
 The ExcelAssistant source code is licensed under MIT. Bundled third-party
 components retain their respective upstream licenses.

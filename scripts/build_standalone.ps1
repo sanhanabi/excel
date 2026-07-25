@@ -16,6 +16,9 @@ if (-not (Test-Path -LiteralPath (Join-Path $root "models\planner.gguf"))) {
 if (-not (Test-Path -LiteralPath (Join-Path $root "runtime\llama\llama-server.exe"))) {
     throw "Bundled llama.cpp runtime was not found."
 }
+if (-not (Test-Path -LiteralPath (Join-Path $root "licenses\Python-3.9.9.txt"))) {
+    throw "Python 3.9.9 license text was not found."
+}
 
 New-Item -ItemType Directory -Force -Path $cache, $build, $release | Out-Null
 $env:NUITKA_CACHE_DIR = $cache

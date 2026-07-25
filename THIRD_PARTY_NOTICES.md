@@ -26,7 +26,9 @@ Python dependencies are declared in `requirements.txt` and retain their
 respective upstream copyright notices and licenses.
 
 The standalone distribution also contains the Python runtime. Python is
-distributed under the Python Software Foundation License.
+distributed under the Python Software Foundation License. The full Python
+3.9.9 license and history text is included at
+[`licenses/Python-3.9.9.txt`](licenses/Python-3.9.9.txt).
 
 The standalone build copies available license and notice files for bundled
 Python packages from the build environment into

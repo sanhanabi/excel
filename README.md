@@ -32,6 +32,24 @@ The installer verifies both downloaded parts and the joined ZIP with SHA-256,
 then joins and extracts them with built-in Windows commands. It does not
 install Python, Ollama, 7-Zip, or a model server.
 
+The executable is not code-signed, so Windows SmartScreen or company security
+software may display a warning. Verify the filenames and `SHA256SUMS.txt` from
+the GitHub Release, and follow the security policy of the target organization.
+
+## Why this repository is public
+
+This repository is published to:
+
+- present the local-LLM planner plus validated-function architecture as a
+  portfolio and technical reference;
+- let developers extend the function catalog or replace the model and
+  inference runtime using the documented interfaces and build process; and
+- allow people studying Excel automation, local AI, and constrained tool
+  execution to modify and redistribute the code under the MIT License.
+
+The release is a usable reference implementation. It is not a promise to cover
+every organization's business rules or provide commercial support.
+
 ## Why this project exists
 
 People often know the result they need from a workbook without knowing the
@@ -214,6 +232,8 @@ py -m unittest discover -s tests -v
   diagnostic logging, requests and planning metadata may be written to the
   local `logs/plans.jsonl` file.
 - 8GB RAM and 2B models are not supported targets.
+- The `v1.0.0` binary uses the end-of-life Python 3.9.9 runtime. A runtime
+  upgrade is deferred to a later maintenance release.
 
 ## Privacy
 
