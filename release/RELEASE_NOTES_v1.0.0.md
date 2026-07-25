@@ -17,7 +17,8 @@ Windows용 완전 오프라인 스탠드얼론 배포판입니다.
 2. `ExcelAssistant-v1.0.0-win64.zip.002`
 3. `Install_ExcelAssistant.cmd`
 
-`Install_ExcelAssistant.cmd`를 더블클릭하면 두 조각을 합치고
+`Install_ExcelAssistant.cmd`를 더블클릭하면 각 파일의 SHA-256을 먼저
+확인합니다. 두 조각을 합친 뒤 완성된 ZIP도 다시 확인하고
 `ExcelAssistant-v1.0.0` 폴더에 압축을 풉니다. 생성된 폴더의
 `ExcelAssistant.exe`를 실행하면 됩니다.
 
@@ -35,8 +36,9 @@ This is the complete offline Windows standalone distribution.
 - Minimum supported memory: 16GB RAM
 
 Download the two archive parts and `Install_ExcelAssistant.cmd` into the same
-folder, then run the CMD file. It joins and extracts the package using built-in
-Windows commands.
+folder, then run the CMD file. Using built-in Windows commands, it verifies
+both parts, joins them, verifies the completed archive, and then extracts the
+package.
 
 The ExcelAssistant source code is licensed under MIT. Bundled third-party
 components retain their respective upstream licenses.

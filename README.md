@@ -28,9 +28,9 @@ GitHub's per-file release limit, so `v1.0.0` is provided as two archive parts.
 4. Open the generated `ExcelAssistant-v1.0.0` folder and run
    `ExcelAssistant.exe`.
 
-The installer only joins and extracts the two archive parts with built-in
-Windows commands. It does not install Python, Ollama, 7-Zip, or a model
-server.
+The installer verifies both downloaded parts and the joined ZIP with SHA-256,
+then joins and extracts them with built-in Windows commands. It does not
+install Python, Ollama, 7-Zip, or a model server.
 
 ## Why this project exists
 
@@ -193,6 +193,9 @@ This repository contains the application source and tests for portfolio review a
 The standalone package, rather than a source checkout, is the end-user application.
 The default [`config.json`](config.json) mirrors the standalone layout and uses the bundled llama.cpp server, not Ollama.
 
+See [`BUILDING.md`](BUILDING.md) for the pinned reference environment, model
+hash, llama.cpp version, and standalone build procedure.
+
 ## Verification
 
 ```powershell
@@ -207,12 +210,17 @@ py -m unittest discover -s tests -v
 - Existing charts, pivot tables, shapes, macros, and full workbook layout are not copied.
 - Sheets with one primary data table are a better fit than report sheets containing several unrelated tables.
 - The user remains responsible for deciding whether the preview reflects the intended work.
-- Requests and planning metadata may be written to the local `logs/plans.jsonl` file.
+- Plan logging is disabled by default. If a developer explicitly enables
+  diagnostic logging, requests and planning metadata may be written to the
+  local `logs/plans.jsonl` file.
 - 8GB RAM and 2B models are not supported targets.
 
 ## Privacy
 
 Workbook content is processed by the bundled local model and deterministic local code. It is not sent to an external AI service.
+
+The distribution sets `logging.enabled` to `false`. If logging is manually
+enabled, log records can contain the user's request and selected plan.
 
 ## Licensing
 

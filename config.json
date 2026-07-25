@@ -12,5 +12,11 @@
   },
   "profile": {
     "sample_count": 3
+  },
+  "logging": {
+    "enabled": false,
+    "include_source_path": false,
+    "include_planning_hints": false,
+    "include_preview": false
   }
 }

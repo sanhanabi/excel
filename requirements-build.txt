@@ -1,0 +1,5 @@
+pandas==2.3.3
+openpyxl==3.1.5
+Nuitka==2.8.4
+ordered-set==4.1.0
+zstandard==0.25.0

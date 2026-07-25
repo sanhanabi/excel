@@ -9,6 +9,7 @@ from pathlib import Path
 import tkinter as tk
 from tkinter import filedialog, messagebox, ttk
 
+from . import __version__
 from .catalog import catalog_for_prompt
 from .excel_io import (
     build_profile,
@@ -107,7 +108,7 @@ def apply_column_aliases(request: str, aliases: dict[str, str]) -> str:
 class ExcelAssistantApp(tk.Tk):
     def __init__(self) -> None:
         super().__init__()
-        self.title("엑셀도우미")
+        self.title(f"엑셀도우미 {__version__}")
         self.geometry("820x620")
         self.minsize(720, 540)
         self._base_dir = application_dir()
@@ -120,7 +121,11 @@ class ExcelAssistantApp(tk.Tk):
     def _load_config(self) -> dict:
         config_path = self._base_dir / "config.json"
         if not config_path.exists():
-            return {"planner": {"type": "rule_based"}, "profile": {"sample_count": 3}}
+            return {
+                "planner": {"type": "rule_based"},
+                "profile": {"sample_count": 3},
+                "logging": {"enabled": False},
+            }
         with config_path.open("r", encoding="utf-8") as file:
             return json.load(file)
 
@@ -562,16 +567,34 @@ class ExcelAssistantApp(tk.Tk):
         preview=None,
         error: str | None = None,
     ) -> None:
+        logging_config = self._config.get("logging")
+        if not isinstance(logging_config, dict) or not bool(
+            logging_config.get("enabled", False)
+        ):
+            return
+        source_file = (
+            str(path)
+            if bool(logging_config.get("include_source_path", False))
+            else path.name
+        )
         try:
             append_plan_log(
                 self._base_dir / "logs" / "plans.jsonl",
                 user_request=request,
-                source_file=str(path),
+                source_file=source_file,
                 sheet_name=sheet_name,
                 status=status,
                 plan=plan,
-                planning_hints=hints,
-                preview=preview,
+                planning_hints=(
+                    hints
+                    if bool(logging_config.get("include_planning_hints", False))
+                    else None
+                ),
+                preview=(
+                    preview
+                    if bool(logging_config.get("include_preview", False))
+                    else None
+                ),
                 error=error,
             )
         except OSError:
