@@ -14,6 +14,24 @@ ExcelAssistant는 자연어 요청을 제한된 Excel 작업 계획으로 바꾸
 
 Python, Ollama, 별도의 모델, API 키와 인터넷 연결이 필요하지 않습니다.
 
+## 스탠드얼론 배포판 다운로드
+
+완전 오프라인 배포판에는 4B 모델이 포함되어 있어 GitHub의 파일당
+Release 용량 제한보다 큽니다. 따라서 `v1.0.0`은 두 개의 압축파일
+조각으로 제공합니다.
+
+1. [ExcelAssistant v1.0.0](https://github.com/sanhanabi/excel/releases/tag/v1.0.0)을 엽니다.
+2. 다음 세 파일을 같은 폴더에 다운로드합니다.
+   - `ExcelAssistant-v1.0.0-win64.zip.001`
+   - `ExcelAssistant-v1.0.0-win64.zip.002`
+   - `Install_ExcelAssistant.cmd`
+3. `Install_ExcelAssistant.cmd`를 더블클릭합니다.
+4. 생성된 `ExcelAssistant-v1.0.0` 폴더에서
+   `ExcelAssistant.exe`를 실행합니다.
+
+설치 CMD는 Windows 기본 기능으로 두 조각을 합치고 압축만 풉니다.
+Python, Ollama, 7-Zip이나 모델 서버를 별도로 설치하지 않습니다.
+
 ## 왜 만들었는가
 
 사용자는 엑셀에서 얻고 싶은 결과를 알고 있어도 그 결과를 만들기 위한

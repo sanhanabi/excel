@@ -14,6 +14,24 @@ Download the package → extract it → run ExcelAssistant.exe
 
 Python, Ollama, a separate model installation, an API key, and an internet connection are not required.
 
+## Download the standalone release
+
+The complete offline package includes the 4B model and is larger than
+GitHub's per-file release limit, so `v1.0.0` is provided as two archive parts.
+
+1. Open [ExcelAssistant v1.0.0](https://github.com/sanhanabi/excel/releases/tag/v1.0.0).
+2. Download these three files into the same folder:
+   - `ExcelAssistant-v1.0.0-win64.zip.001`
+   - `ExcelAssistant-v1.0.0-win64.zip.002`
+   - `Install_ExcelAssistant.cmd`
+3. Double-click `Install_ExcelAssistant.cmd`.
+4. Open the generated `ExcelAssistant-v1.0.0` folder and run
+   `ExcelAssistant.exe`.
+
+The installer only joins and extracts the two archive parts with built-in
+Windows commands. It does not install Python, Ollama, 7-Zip, or a model
+server.
+
 ## Why this project exists
 
 People often know the result they need from a workbook without knowing the
